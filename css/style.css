@@ -364,6 +364,7 @@ figure {
   position: relative;
   float: left;
   width: 100%;
+  
 }
 
 #fh5co-logo {
@@ -1978,3 +1979,9 @@ div.cs-select span {
 }
 
 /*# sourceMappingURL=style.css.map */
+img {
+  width: 200px;
+  height: 380px;
+  object-fit: cover;
+  object-position: 80% 40%;
+}
