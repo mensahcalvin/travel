@@ -12,7 +12,9 @@
 *
 * ======================================================= */
 body {
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.6;
   font-size: 16px;
   background: #fff;
@@ -1985,3 +1987,4 @@ img {
   object-fit: cover;
   object-position: 80% 40%;
 }
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+          <h3>Chat Assistant</h3>
+          <button class="close-chat">×</button>
+        </div>
+        
+        <div class="chat-messages">
+          <!-- Messages will appear here -->
+          <div class="message bot-message">
+            <div class="message-content">
+              Hello! How can I help you today?
+            </div>
+            <div class="message-time">10:00 AM</div>
+          </div>
+        </div>
+        
+        <div class="chat-input">
+          <input type="text" placeholder="Type your message..." class="message-input">
+          <button class="send-button">Send</button>
+        </div>
+      </div>
+      
+      <style>
+      .chat-container {
+        width: 350px;
+        height: 500px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .chat-header {
+        background: #4285f4;
+        color: white;
+        padding: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .close-chat {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      
+      .chat-messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background: #f9f9f9;
+      }
+      
+      .message {
+        margin-bottom: 15px;
+        max-width: 80%;
+      }
+      
+      .message-content {
+        padding: 10px 15px;
+        border-radius: 18px;
+        margin-bottom: 5px;
+      }
+      
+      .user-message {
+        margin-left: auto;
+      }
+      
+      .user-message .message-content {
+        background: #4285f4;
+        color: white;
+        border-bottom-right-radius: 5px;
+      }
+      
+      .bot-message {
+        margin-right: auto;
+      }
+      
+      .bot-message .message-content {
+        background: #e0e0e0;
+        color: #333;
+        border-bottom-left-radius: 5px;
+      }
+      
+      .message-time {
+        font-size: 11px;
+        color: #999;
+        text-align: right;
+      }
+      
+      .chat-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        background: white;
+      }
+      
+      .message-input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        outline: none;
+      }
+      
+      .send-button {
+        background: #4285f4;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 0 15px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      </style>
+      
+      <script>
+      document.querySelector('.send-button').addEventListener('click', sendMessage);
+      document.querySelector('.message-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') sendMessage();
+      });
+      
+      function sendMessage() {
+        const input = document.querySelector('.message-input');
+        const message = input.value.trim();
+        
+        if (message) {
+          // Add user message
+          const messagesContainer = document.querySelector('.chat-messages');
+          messagesContainer.innerHTML += `
+            <div class="message user-message">
+              <div class="message-content">${message}</div>
+              <div class="message-time">${getCurrentTime()}</div>
+            </div>
+          `;
+          
+          input.value = '';
+          
+          // Simulate bot response after a short delay
+          setTimeout(() => {
+            messagesContainer.innerHTML += `
+              <div class="message bot-message">
+                <div class="message-content">I received your message: "${message}"</div>
+                <div class="message-time">${getCurrentTime()}</div>
+              </div>
+            `;
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          }, 1000);
+          
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      }
+      
+      function getCurrentTime() {
+        const now = new Date();
+        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }
+      </script>
+</body>
+</html>
