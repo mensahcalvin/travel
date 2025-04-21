@@ -21,6 +21,8 @@ body {
   color: #848484;
   font-weight: 300;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 body.fh5co-offcanvas {
   overflow: hidden;
@@ -249,11 +251,12 @@ figure {
 
 /* Superfish Override Menu */
 .sf-menu {
-  margin: 7px 0 0 0 !important;
-}
-
-.sf-menu {
-  float: right;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .sf-menu ul {
@@ -405,9 +408,15 @@ figure {
   display: block;
   float: right;
   margin-top: 15px;
+  height: 60px; /* Adjust height */
+  line-height: 60px; /* Center items vertically */
 }
 #fh5co-menu-wrap .sf-menu a {
   padding: 1em .75em;
+}
+#fh5co-menu-wrap h3 img {
+  height: 40px; /* Adjust logo height */
+  margin-right: 10px; /* Add spacing between logo and text */
 }
 
 #fh5co-primary-menu > li > ul li.active > a {
