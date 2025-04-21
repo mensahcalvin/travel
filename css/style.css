@@ -11,6 +11,11 @@
 *	Edit this section
 *
 * ======================================================= */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: "Special Gothic Expanded One", sans-serif;
   font-weight: 400;
@@ -21,6 +26,8 @@ body {
   color: #848484;
   font-weight: 300;
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
